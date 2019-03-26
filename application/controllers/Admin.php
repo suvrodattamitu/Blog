@@ -1,16 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	
 	public function index()
 	{
-		$this->load->model('Authenticate');
-		$data['users'] = $this->Authenticate->getdata();
-		print_r($data);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('uname','User Name','required|alpha');
+		$this->form_validation->set_rules('upassword','User Password','required|max_length[15]');
 
-		$this->load->view('welcome',$data);
+		if ( $this->form_validation->run() ){
+			echo "successfull and valid";
+		}else{
+			//echo validation_errors();
+			$this->load->view('users/article_list');
+		}
+
 	}
 
 }

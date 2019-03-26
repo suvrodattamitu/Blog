@@ -1,40 +1,53 @@
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="<?= base_url("Assets/css/bootstrap.min.css") ?>">
-</head>
-<body>
+<?php include( 'header.php' ); ?>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	  <a class="navbar-brand" href="#">Article List</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	<br>
 
-	  <div class="collapse navbar-collapse" id="navbarColor01">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Features</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Pricing</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">About</a>
-	      </li>
-	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-	      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-	    </form>
-	  </div>
-	</nav>
+	<div class = "container">
+		<h2>Login Here</h2><br>
 
-	<script src="<?= base_url("Assets/js/jquery.min.js") ?>"></script>
-	<script src="<?= base_url("Assets/js/bootstrap.min.js") ?>"></script>
+		<form action="<?= base_url('Admin/index') ?>" method="post" name="login">
 
-</body>
-</html>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="form-group">
+					   <label for="name">Name</label>
+					   <input type="text" name="uname"  class="form-control" id="name" placeholder="Enter name">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6">
+				<p><?php echo form_error('uname',"<div class='text-danger'>","</div>"); ?></p>
+				</div>
+			</div>
+           
+           <div class="row">
+				<div class="col-lg-6">
+		           <div class="form-group">
+		              <label for="password">Password</label>
+		              <input type="password" name="upassword" id="password"  class="form-control"  placeholder="Enter Password">
+		           </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6">
+				<p><?php echo form_error('upassword',"<div class='text-danger'>","</div>"); ?> </p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6">
+            		<button type="submit" class=" btn btn-primary">Login</button>
+		            <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
+           		</div>
+			</div>
+
+           
+        </form>
+		                 
+
+	</div>
+
+<?php include( 'footer.php' ); ?>
