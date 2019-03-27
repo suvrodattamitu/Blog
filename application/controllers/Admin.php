@@ -9,6 +9,16 @@ class admin extends CI_Controller {
 
 	}
 
+	public function validateaddfield(){
+
+		if( $this->form_validation->run('add_article_rules') ){
+			echo "ok";
+		}else{
+			return $this->load->view('admin/add_article');
+		}
+
+	}
+
 	public function login()
 	{
 		if( $this->session->userdata('id') ){

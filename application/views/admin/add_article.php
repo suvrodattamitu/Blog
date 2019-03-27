@@ -7,7 +7,7 @@
 	<div class = "container">
 		<h2>Add Article Here</h2><br>
 
-		<form action="<?= base_url('admin/addarticle') ?>" method="post">
+		<form action="<?= base_url('admin/validateaddfield') ?>" method="post">
 
 			<div class="row">
 				<div class="col-lg-6">
