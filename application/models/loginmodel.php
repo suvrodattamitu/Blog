@@ -21,6 +21,18 @@
 
 		}
 
+		public function article_list(){
+
+			$this->load->library('session');
+			$user_id  = $this->session->userdata('id');
+			$articles = $this->db->select('title')->from('articles')->where(['user_id',$user_id])->get();
+			// echo("</pre>");
+			// print_r($articles->result());
+			// exit;
+			return $articles->result();
+
+		}
+
 	}
 
 ?>

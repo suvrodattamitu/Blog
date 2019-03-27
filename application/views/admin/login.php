@@ -5,7 +5,7 @@
 	<div class = "container">
 		<h2>Login Here</h2><br>
 
-		<form action="<?= base_url('Admin/index') ?>" method="post" name="login">
+		<form action="<?= base_url('admin/index') ?>" method="post" name="login">
 
 			<div class="row">
 				<div class="col-lg-6">
@@ -39,12 +39,17 @@
 
 			<div class="row">
 				<div class="col-lg-6">
-            		<button type="submit" class=" btn btn-primary">Login</button>
-		            <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
+            		<button type="submit" class="btn btn-primary">Login</button>
            		</div>
 			</div>
 
-           
+			<div class="row">
+				<div class="col-lg-6">
+           			<p class="text-center">Don't have account? <a href="<?php echo site_url('/admin/register') ?>" id="signup">Sign up here</a></p>
+           		</div>
+			</div>
+
+
         </form>
 		                 
 
