@@ -28,8 +28,10 @@ class admin extends CI_Controller {
 				echo "results matched with name = ".$res->username." and email = ".$res->email;
 			}else{
 				//data is not valid
-				echo "results not matched";
-				$this->load->view('admin/login');
+				$this->session->set_flashdata('login_fail','Invalid Username or Password');
+				return redirect('admin/login');
+				//echo "results not matched";
+				//$this->load->view('admin/login');
 
 			}
 

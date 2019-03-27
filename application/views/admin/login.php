@@ -2,8 +2,21 @@
 	
 	<br>
 
+
+
 	<div class = "container">
 		<h2>Login Here</h2><br>
+
+		<?php if($log_error = $this->session->flashdata('login_fail')): ?>
+		<div class="row">
+			<div class="col-lg-6">
+			<div class='text-danger'>
+				<?php echo $log_error; ?>
+			</div>
+			</div>
+		</div>
+		<br>
+		<?php endif; ?>
 
 		<form action="<?= base_url('admin/login') ?>" method="post" name="login">
 
