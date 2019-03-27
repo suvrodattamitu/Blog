@@ -3,9 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class admin extends CI_Controller {
 
-	
-	public function index()
+	public function login()
 	{
+		if( $this->session->userdata('id') ){
+		 	return redirect('admin/article');
+		}
+		
+
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('uname','User Name','required|alpha');
 		$this->form_validation->set_rules('upassword','User Password','required|max_length[15]');
@@ -20,7 +24,7 @@ class admin extends CI_Controller {
 				//login now data is valid
 				$this->load->library('session');
 				$this->session->set_userdata('id',$res->id);
-				$this->load->view('admin/dashboard');
+				return redirect('admin/article');
 				echo "results matched with name = ".$res->username." and email = ".$res->email;
 			}else{
 				//data is not valid
@@ -74,12 +78,26 @@ class admin extends CI_Controller {
 
 	}
 
-	public function dashboard(){
+	public function article(){
+
+		if( !$this->session->userdata('id') ){
+
+		 	return redirect('admin/login');
+		}
+		
 
 		$this->load->model('loginmodel');
 		$articles = $this->loginmodel->article_list();
+		// echo "</pre>";
+		// print_r($articles);
+		// exit;
 		$this->load->view('admin/dashboard',['articles'=>$articles]);
 
+	}
+
+	public function logout(){
+		$this->session->unset_userdata('id');
+		return redirect('admin/login');
 	}
 
 

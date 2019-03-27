@@ -5,7 +5,7 @@
 	<div class = "container">
 		<h2>Login Here</h2><br>
 
-		<form action="<?= base_url('admin/index') ?>" method="post" name="login">
+		<form action="<?= base_url('admin/login') ?>" method="post" name="login">
 
 			<div class="row">
 				<div class="col-lg-6">
