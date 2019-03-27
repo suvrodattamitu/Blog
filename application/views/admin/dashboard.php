@@ -2,8 +2,14 @@
 
 <div class="container">
 <br>
-<h1>Hello Dashboard!</h1>
+<h1 class="col-md-9 offset-3">Hello Dashboard!</h1>
 <br>
+<div class = "row">
+<a href="<?= base_url('admin/addarticle') ?>" class="btn btn-success">Add Article</a>
+</div>
+
+<br>
+<div class="row">
 <div class="table">
 	<table>
 		<thead>
@@ -32,7 +38,7 @@
 		</tbody>
 	</table>
 </div>
-
+</div>
 </div>
 
 <?php include('footer.php'); ?>

@@ -3,13 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class admin extends CI_Controller {
 
+	public function addarticle(){
+
+		return $this->load->view('admin/add_article');
+
+	}
+
 	public function login()
 	{
 		if( $this->session->userdata('id') ){
 		 	return redirect('admin/article');
 		}
 		
-
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('uname','User Name','required|alpha');
 		$this->form_validation->set_rules('upassword','User Password','required|max_length[15]');
