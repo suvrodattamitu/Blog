@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="form-group">
+            <div class="form-group">    
                <label for="username" class="col-sm-3 control-label">User Name</label>
                <div class="col-sm-9">
                     <input type="text" name="username"  value="<?php echo set_value('username'); ?>" class="form-control"  placeholder="Enter user name">
@@ -95,7 +95,7 @@
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Password*</label>
                 <div class="col-sm-9">
-                    <input type="password" name="password1" value="<?php echo set_value('password1'); ?>" placeholder="Password" class="form-control">
+                    <input type="password" name="password" value="<?php echo set_value('password'); ?>" placeholder="Password" class="form-control">
                 </div>
             </div>
         </div>
@@ -104,26 +104,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="col-sm-9">
-                <p><?php echo form_error('password1',"<div class='text-danger'>","</div>"); ?> </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
-                <div class="col-sm-9">
-                    <input type="password" name="password2" value="<?php echo set_value('password2'); ?>" placeholder="Password" class="form-control">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="col-sm-9">        
-                <p><?php echo form_error('password2',"<div class='text-danger'>","</div>"); ?> </p>
+                <p><?php echo form_error('password',"<div class='text-danger'>","</div>"); ?> </p>
             </div>
         </div>
     </div>

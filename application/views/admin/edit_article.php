@@ -4,18 +4,17 @@
 
 
 	<div class = "container">
-		<h2>Add Article Here</h2><br>
+		<h2>Edit Article Here</h2><br>
 
-		<form action="<?= base_url('admin/validateaddfield') ?>" method="post">
+		<form action="<?php echo base_url() ?>admin/updatearticle/<?php echo $article->id ?>" method="post">
 
-			<?php echo form_hidden('user_id',$this->session->userdata('id')); ?>
 
 
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="form-group">
 					   <label for="title">Title</label>
-					   <input type="text" name="title"  class="form-control" value="<?php echo set_value('title'); ?>" id="title" placeholder="Enter Title">
+					   <input type="text" name="title"  class="form-control" value="<?php echo set_value('title',$article->title); ?>" id="title" placeholder="Enter Title">
 					</div>
 				</div>
 			</div>
@@ -30,7 +29,7 @@
 				<div class="col-lg-6">
 		           <div class="form-group">
 		              <label for="body">Description</label>
-		                <textarea class="form-control" placeholder="Description" name="body" value="<?php echo set_value('body'); ?>" ></textarea>
+		               <textarea type="textarea" class="form-control" placeholder="Description" name="body" value="<?php echo set_value('body'); ?>" ><?php echo $article->body; ?></textarea>
 		           </div>
 				</div>
 			</div>
@@ -43,7 +42,7 @@
 
 			<div class="row">
 				<div class="col-lg-6">
-            		<button type="submit" class="btn btn-primary">Add</button>
+            		<button type="submit" class="btn btn-primary">Edit</button>
            		</div>
 			</div>
 

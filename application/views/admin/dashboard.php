@@ -3,10 +3,26 @@
 <div class="container">
 <br>
 <h1 class="col-md-9 offset-3">Hello Dashboard!</h1>
-<br>
+
 <div class = "row">
-<a href="<?= base_url('admin/addarticle') ?>" class="btn btn-success">Add Article</a>
+	<div class="col-md-9 offset-5">
+		<a href="<?= base_url('admin/addarticle') ?>" class="btn btn-success float-left">Add Article</a>
+	</div>
+
 </div>
+
+<?php if($article_msg = $this->session->flashdata('msg')): ?>
+<br>
+<div class="row">
+	<div class='<?php echo $this->session->flashdata('msg_class'); ?>'>
+		<?php echo $article_msg; ?>
+	</div>
+</div>
+
+<br>
+<?php endif; ?>
+<br>
+
 
 <br>
 <div class="row">
@@ -22,12 +38,22 @@
 		</thead>
 		<tbody>
 			<?php if( count($articles) ): ?>
-			<?php foreach($articles as $article): ?>
+			<?php $cnt = 0; foreach($articles as $article): ?>
 			<tr>
-				<th>1</th>
+				<th><?php echo $article->id; ?></th>
 				<th><?php echo $article->title; ?></th>
-				<th><a href="#" class="btn btn-primary">Edit</a></th>
-				<th><a href="#" class="btn btn-danger">Delete</a></th>
+
+				<th><?=  anchor("admin/editarticle/{$article->id}",'Edit',['class'=>'btn btn-primary']);  ?></th>
+
+				<th>
+				<form action="<?php echo base_url('admin/deletearticle'); ?>" method="post">
+				  
+				  <?php echo form_hidden('id',$article->id); ?>
+				  <button class="btn btn-danger">Delete</button>
+
+				</form>
+			   </th>
+
 			</tr>
 			<?php endforeach; ?>
 			<?php else:?>
@@ -36,7 +62,12 @@
 			</tr>
 			<?php endif; ?>
 		</tbody>
+
+
 	</table>
+
+	<?= $this->pagination->create_links(); ?>
+
 </div>
 </div>
 </div>
